@@ -907,7 +907,7 @@ echo -e "\E[1;34m::::: \e[97mFollow The Prompts To Create The HotJones SSH Clien
 echo -e "\E[1;34m::::: \e[97m-------------------------------------------------------------- \E[1;34m:::::"
 cat << "EOF"
 The backup DBD client option should only be used by those who understand its uses and limitations. 
-DBD is a (non-tty shell) encrypted ncat clone. It is safe to use; but cannot be use to launch and operate HotJones.
+DBD is a (non-tty shell) encrypted ncat clone. It is safe to use; but cannot be used to launch and operate HotJones.
 DBD is included as a limited failsafe option in the event of a "just in case" scenario.
 DBD will need to be placed on your Librem 5 & executed. It will then connect back you your "Controller Server".
 Its connection is self-healing as well.
