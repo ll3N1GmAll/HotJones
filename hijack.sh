@@ -1002,7 +1002,7 @@ echo ""
 			echo -e "\e[1;34m**Step 6 - Generate SSH Authentication Certificate On Librem 5 & Move Public Key To Controller Server**\e[0m"
 			echo -e "\e[1;34mRun This Command On Your Librem 5:\e[0m"
 			echo -e "\E[1;34m\e[97m \e[31mssh-keygen -t rsa\e[97m\E[1;34m"
-			echo -e "\e[1;34mHit Enter To Accept All Defaults \e[0m" #(You May Select A Passphrase For Additional Security, Highly Recommended)
+			echo -e "\e[1;34mHit Enter To Accept All Defaults\e[0m"
 cat << "EOF"
 Your private key will be generated using the default filename (e.g., id_rsa) and stored on your Librem 5 in a .ssh directory off your home directory (e.g., ~/.ssh/id_rsa).
 
@@ -1045,7 +1045,7 @@ EOF
 			echo -e "\e[1;34mIf you have a need for either device to have SSH password based authentication enabled you may disregard this step;\e[0m"
 			echo -e "\e[1;34mhowever, leaving SSH password auth enabled leaves your device(s) open to password brute-forcing attacks.\e[0m"
 			echo ""
-			echo -e "\E[1;34m\e[97m \e[31msed -i -e '0,/PasswordAuthentication/!b' -e '/PasswordAuthentication/s/^/#/' /etc/ssh/sshd_config\e[97m\E[1;34m"	
+			echo -e "\E[1;34m\e[97m \e[31msed -i -e '0,/PasswordAuthentication/!b' -e '/PasswordAuthentication/s/^/#/' /etc/ssh/sshd_config && service ssh restart\e[97m\E[1;34m"	
 		echo ""
 		echo -e "\e[1;34m***IF YOUR CONTROLLER SERVER IS LOGGED IN AS ROOT:***\e[0m"
 		echo -e "\e[1;34mThe SSH password auth option for the root user was enabled for the setup process.\e[0m"
@@ -1054,6 +1054,19 @@ EOF
 		echo -e "\E[1;34m\e[97m \e[31msed -i \"/PermitRootLogin/s/yes/prohibit-password/\" /etc/ssh/sshd_config && service ssh restart\e[97m\E[1;34m"
 		echo ""
 		echo "No additional changes for setup are required."
+		echo ""
+cat << "EOF"
+***WARNING*** This setup requires certificate only authentication both ways to maintain the connection. 
+The means the Librem 5 will have the ability to connect to your Controller Server WITHOUT A PASSWORD! 
+This is a risk if the phone is lost/stolen. However, this can be done safely.
+Once this is setup you need to run "service ssh stop" on your Controller Server and make sure the SSH service does not start by default on boot.
+To check, after startup, run "service ssh status" to see if the service shows as inactive or active. If inactive/dead you are safe.
+When you need to interact with the Librem 5, simply run "service ssh start" on your Controller Server; then wait 1 minute or less and run:
+ssh -l TARGET_USERNAME -p TARGET_PORT localhost   (as per the instructions above)
+Do your business and exit out of the session like normal. Then, run "service ssh stop" on your Controller Server and leave the ssh service down/inactive until you 
+need to interact with the Librem 5 again; at which time you will run "service ssh start" again and the cycle repeats.
+DO NOT FORGET THIS IMPORTANT USAGE STEP!!
+EOF
 			;;
 		"Librem 5 Client Connector Generator (DBD Backup)")	
 			clear
