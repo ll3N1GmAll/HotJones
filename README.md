@@ -1,5 +1,5 @@
 # The Hot Jones Hijack is a Theft Prevention &amp; Remote Administration Tool for the Purism Librem 5
-Version 0.0.0.1
+Version 0.0.0.2
 
 Important Usage Research:
 https://youtu.be/WNwCnVFXoZg
