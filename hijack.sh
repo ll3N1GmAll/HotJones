@@ -1143,4 +1143,4 @@ esac
 
 tput sgr0                               # Reset colors to "normal."
 
-exit 0 
+exit 0
