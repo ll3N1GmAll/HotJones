@@ -157,8 +157,8 @@ tput sgr0
 echo -e "\E[1;34m===\e[97m[0] \e[31mExit                 \e[97m [EXIT]   \E[1;34m"
 tput sgr0
 
-echo -e "\E[1;34m::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
-echo -e "\e[97m~~~~~~~~~~~~~~~~~ \e[31mProps to Puri.sm for their dedication\e[97m~~~~~~~~~~~~~~~~~\e[31m"
+echo -e "\E[1;34m:::::::::::::::::::::::::::::::::::::::"
+echo -e "\e[97m~\e[31mProps to Puri.sm for their dedication\e[97m~\e[31m"
 tput sgr0
 
 
