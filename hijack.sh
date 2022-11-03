@@ -132,29 +132,29 @@ echo -e "\E[1;34m:\e[97m[2] \e[32mHardware Controls\e[97m    [TURN ON/OFF]\E[1;3
 tput sgr0
 echo -e "\E[1;34m=\e[97m[3] \e[34mSounds\e[97m   [ALARM & VOLUME CONTROLS]\E[1;34m"
 tput sgr0
-echo -e "\E[1;34m:::\e[97m[4] \e[95mLocation             \e[97m [PULL GPS DATA] \E[1;34m"
+echo -e "\E[1;34m:\e[97m[4] \e[95mLocation\e[97m           [PULL GPS DATA]\E[1;34m"
 tput sgr0
-echo -e "\E[1;34m===\e[97m[5] \e[31mDevice Details       \e[97m [PULL DEVICE INFO]  \E[1;34m"
+echo -e "\E[1;34m=\e[97m[5] \e[31mDevice Details \e[97m [PULL DEVICE INFO]\E[1;34m"
 tput sgr0
-echo -e "\E[1;34m:::\e[97m[6] \e[36mAccess Controls      \e[97m [LOCK/UNLOCK DEVICE]   \E[1;34m"
+echo -e "\E[1;34m:\e[97m[6] \e[36mAccess Controls   \e[97m [LOCK & UNLOCK]\E[1;34m"
 tput sgr0                               # Reset attributes.
-echo -e "\E[1;34m===\e[97m[7] \e[32mSituational Awareness\e[97m [MIC, CAMERA, & VIDEO ACCESS]  \E[1;34m"
+echo -e "\E[1;34m=\e[97m[7] \e[32mSituational Awareness\e[97m  [MIC & CAM]\E[1;34m"
 tput sgr0
-echo -e "\E[1;34m:::\e[97m[8] \e[34mUser Awareness       \e[97m [SCREENSHOT, SCREEN CAP, CALL/SMS LOGS, D/L]   \E[1;34m"
+echo -e "\E[1;34m:\e[97m[8] \e[34mUser Awareness\e[97m [SCREEN, LOGS, D/L]\E[1;34m"
 tput sgr0
-echo -e "\E[1;34m===\e[97m[9] \e[95mWipe Device          \e[97m [LOOKS LIKE I'M GONNA HAVE TO JUMP...]   \E[1;34m"
+echo -e "\E[1;34m=\e[97m[9] \e[95mWipe Device\e[97m [GONNA HAVE TO JUMP..]\E[1;34m"
 tput sgr0
-echo -e "\E[1;34m:::\e[97m[10]\e[31mRemote Use           \e[97m [SPAWN SHELLs, MAKE CALLs, SEND SMS']   \E[1;34m"
+echo -e "\E[1;34m:\e[97m[10]\e[31mRemote Use\e[97m    [SHELLS, SEND COMMS]\E[1;34m"
 tput sgr0
-echo -e "\E[1;34m===\e[97m[11]\e[36mApps & Services      \e[97m [LIST APPS, START APPS/SERVICES]   \E[1;34m"
+echo -e "\E[1;34m=\e[97m[11]\e[36mApps & Services\e[97m [LIST, START/STOP]\E[1;34m"
 tput sgr0
-echo -e "\E[1;34m:::\e[97m[12]\e[32mReboot               \e[97m [REBOOT DEVICE]   \E[1;34m"
+echo -e "\E[1;34m:\e[97m[12]\e[32mReboot         \e[97m    [REBOOT DEVICE]\E[1;34m"
 tput sgr0
-echo -e "\E[1;34m===\e[97m[13]\e[34mDependency Checker   \e[97m [INSTALL DEPENDENCIES]   \E[1;34m"
+echo -e "\E[1;34m=\e[97m[13]\e[34mDependency Checker\e[97m  [DEPENDENCIES]\E[1;34m"
 tput sgr0
-echo -e "\E[1;34m:::\e[97m[14]\e[95mClient Connector     \e[97m [SELF HEALING CLIENT GENERATOR]  \E[1;34m"
+echo -e "\E[1;34m:\e[97m[14]\e[95mClient Connector\e[97m  [LINK GENERATOR]\E[1;34m"
 tput sgr0
-echo -e "\E[1;34m===\e[97m[0] \e[31mExit                 \e[97m [EXIT]   \E[1;34m"
+echo -e "\E[1;34m=\e[97m[0] \e[31mExit                       \e[97m [EXIT]\E[1;34m"
 tput sgr0
 
 echo -e "\E[1;34m:::::::::::::::::::::::::::::::::::::::"
