@@ -124,9 +124,9 @@ cat << "EOF"
 EOF
 fi 
 tput sgr0                                       # 
-echo -e "\e[31m_________________________[ \e[97mChoose Your Options \e[31m]________________________"
-echo -e "\E[1;34m::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
-echo -e "\E[1;34m===\e[97m[1] \e[36mSend A Message       \e[97m [SEND MESSAGE TO SCREEN]  \E[1;34m"
+echo -e "\e[31m_________[ \e[97mChoose Your Options \e[31m]________"
+echo -e "\E[1;34m:::::::::::::::::::::::::::::::::::::::"
+echo -e "\E[1;34m=\e[97m[1] \e[36mSend A Message \e[97m[MESSAGE TO SCREEN]\E[1;34m"
 tput sgr0                               # Reset colors to "normal."
 echo -e "\E[1;34m:::\e[97m[2] \e[32mHardware Controls    \e[97m [ENABLE/DISABLE HARDWARE]   \E[1;34m"
 tput sgr0
