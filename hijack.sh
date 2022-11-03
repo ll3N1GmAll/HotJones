@@ -24,11 +24,11 @@ secs=$(date '+%S');
 mkdir ~/Desktop/temp 
 clear
 clear
-echo -e "\E[1;34m==========================================================="
-echo -e "\E[1;34m==================== \e[97mHot Jones Hijack \E[1;34m====================="
-echo -e "\E[1;34m::::::::\e[97mRemote Administration/Theft Prevention Tool\E[1;34m::::::::"
-echo -e "\E[1;34m:::::::::::\e[97m Brought to you by 3/\/ | G /\/\ /-\ \E[1;34m:::::::::::"
-echo -e "\E[1;34m==========================================================="
+echo -e "\E[1;34m======================================="
+echo -e "\E[1;34m========== \e[97mHot Jones Hijack \E[1;34m==========="
+echo -e "\E[1;34m:\e[97mRemote Control/Theft Prevention Tool\E[1;34m:"
+echo -e "\E[1;34m:\e[97m Brought to you by 3/\/ | G /\/\ /-\ \E[1;34m:"
+echo -e "\E[1;34m======================================="
 read -p "Press [Enter] key to Continue..."
 clear
 echo -e "\E[1;34m========== \e[97mHot Jones Hijack - Remote Admin Tool For The Librem 5\E[1;34m========="
