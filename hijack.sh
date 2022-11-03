@@ -35,16 +35,16 @@ echo -e "\E[1;34m==\e[97mHot Jones Hijack - For The Librem 5\E[1;34m=="
 if [ 0 -le $secs ] && [ $secs -le 14 ];
 then
 cat << "EOF"
-                                          )  (
-                                         (   ) )
-                                          ) ( (
-                                          o8Oo.)
-                                        _o8o8O8o_
-                                     .-'---------|  
-                                    ( C|   Hot   |  
-                                     '-.  Jones  |
-                                       '_________'
-                                        '-------'                          
+                                   )  (
+                                  (   ) )
+                                   ) ( (
+                                   o8Oo.)
+                                 _o8o8O8o_
+                              .-'---------|  
+                             ( C|   Hot   |  
+                              '-.  Jones  |
+                                '_________'
+                                 '-------'                          
 EOF
 elif [ 15 -le $secs ] && [ $secs -le 30 ];
 then
