@@ -128,9 +128,9 @@ echo -e "\e[31m________[ \e[97mChoose Your Options \e[31m]________"
 echo -e "\E[1;34m:::::::::::::::::::::::::::::::::::::::"
 echo -e "\E[1;34m=\e[97m[1] \e[36mSend A Message \e[97m[MESSAGE TO SCREEN]\E[1;34m"
 tput sgr0                               # Reset colors to "normal."
-echo -e "\E[1;34m:\e[97m[2] \e[32mHardware Controls\e[97m [TURN ON/OFF]   \E[1;34m"
+echo -e "\E[1;34m:\e[97m[2] \e[32mHardware Controls\e[97m    [TURN ON/OFF]\E[1;34m"
 tput sgr0
-echo -e "\E[1;34m=\e[97m[3] \e[34mSounds\e[97m [ALARM & VOLUME CONTROLS]\E[1;34m"
+echo -e "\E[1;34m=\e[97m[3] \e[34mSounds\e[97m   [ALARM & VOLUME CONTROLS]\E[1;34m"
 tput sgr0
 echo -e "\E[1;34m:::\e[97m[4] \e[95mLocation             \e[97m [PULL GPS DATA] \E[1;34m"
 tput sgr0
