@@ -779,7 +779,7 @@ do
 			mkdir /tmp/HotJones/
 			echo ""
 
-	reqs="alsa-utils xinput mplayer recordmydesktop ffmpeg gnome-screensaver openssh-server"
+	reqs="alsa-utils xinput mplayer recordmydesktop ffmpeg gnome-screensaver openssh-server make"
 	for i in $reqs; do
 		dpkg -s "$i" &> /tmp/HotJones/$i-install.txt
 		isinstalled=$(cat /tmp/HotJones/$i-install.txt | grep -o "Status: install ok installed")
