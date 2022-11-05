@@ -1007,8 +1007,16 @@ cat << "EOF"
 Your private key will be generated using the default filename (e.g., id_rsa) and stored on your Librem 5 in a .ssh directory off your home directory (e.g., ~/.ssh/id_rsa).
 
 The corresponding public key will be generated using the same filename (but with a .pub extension added) and stored in the same location (e.g., ~/.ssh/id_rsa.pub).
-Use USB or SCP to copy the public key file (e.g., ~/.ssh/id_rsa.pub) to your Controller Server; for example, using command-line SCP:  
+Use USB or SCP to copy the public key file (e.g., ~/.ssh/id_rsa.pub) to your Controller Server. 
+
+However, you need to make sure there is a ~/.ssh/ folder on your Controller server first. That is accomplished with the following command:
 EOF
+			echo -e "\E[1;34m\e[97m \e[31mmkdir -p ~/.ssh\e[97m\E[1;34m"
+			echo ""			
+cat << "EOF"
+Now, you can use SCP to copy the public key file (e.g., ~/.ssh/id_rsa.pub) to your Controller Server, using a command like the example below:
+EOF
+			echo ""	
 			echo -e "\E[1;34m\e[97m \e[31mscp ~/.ssh/id_rsa.pub "$username"@"$userhost":~/.ssh/L5id_rsa.pub \e[97m\E[1;34m"
 			echo ""
 			echo -e "\e[1;34mYou'll be prompted for your account password and, possibly to accept the SSH certificate (type \"yes\" in that case. Your public key will be copied to ~/.ssh/L5id_rsa.pub\e[0m"
@@ -1022,7 +1030,7 @@ EOF
 cat << "EOF"
 Also, you need to add your Librem 5's public key to the ~/.ssh/authorized_keys file. If you do not have a ~/.ssh/authorized_keys file, you can create one as follows:
 EOF
-			echo -e "\E[1;34m\e[97m \e[31mmkdir -p ~/.ssh\e[97m\E[1;34m"
+#			echo -e "\E[1;34m\e[97m \e[31mmkdir -p ~/.ssh\e[97m\E[1;34m"
 			echo -e "\E[1;34m\e[97m \e[31mtouch ~/.ssh/authorized_keys\e[97m\E[1;34m"
 cat << "EOF"
 On the Controller Server, add the contents of your public key file (e.g., ~/.ssh/L5id_rsa.pub) to a new line in your ~/.ssh/authorized_keys file; on the command line, enter:
